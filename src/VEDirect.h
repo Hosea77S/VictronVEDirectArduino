@@ -21,6 +21,7 @@
 #define VEDIRECT_H_
 
 #include <Arduino.h>
+#include <SoftwareSerial.h>
 
 // Tunable parameters - defaults tested on mega2560 R3
 #define VED_LINE_SIZE 30		 // Seems to be plenty. VE.Direct protocol could change
@@ -52,13 +53,13 @@ const char ved_labels[VE_LAST_LABEL][VED_MAX_LEBEL_SIZE] PROGMEM = {
 
 class VEDirect {
 public:
-	VEDirect(HardwareSerial& port);
+	VEDirect(int rxPin, int txPin);
 	virtual ~VEDirect();
 	uint8_t begin();
 	int32_t read(uint8_t target);
 	void copy_raw_to_serial0(); // kept for backwards compatibility
 private:
-	HardwareSerial& VESerial;
+	SoftwareSerial& VESerial;
 };
 
 #endif /* VEDIRECT_H_ */
