@@ -59,7 +59,7 @@ public:
 	int32_t read(uint8_t target);
 	void copy_raw_to_serial0(); // kept for backwards compatibility
 private:
-	SoftwareSerial& VESerial;
+	SoftwareSerial VESerial;
 };
 
 #endif /* VEDIRECT_H_ */
