@@ -14,8 +14,8 @@
 
 #include "VEDirect.h"
 
-VEDirect::VEDirect(HardwareSerial& port):
-	VESerial(port)
+VEDirect::VEDirect(int rxPin, int txPin):
+	VESerial( rxPin, txPin)
 	// Initialise the serial port that the
 	// VE.Direct device is connected to and
 	// store it for later use.
